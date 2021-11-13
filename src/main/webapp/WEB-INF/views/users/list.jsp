@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 	<c:choose>
 		<c:when test="${not empty datas}">
 			<c:forEach items="${datas}" var="users">
-				${users.userName} - ${users.fullName} - ${users.id}
+				${users.getUsername()} - ${users.getFullname()} - ${users.getId()} <br />
 			</c:forEach>
 		</c:when>
 		<c:otherwise>

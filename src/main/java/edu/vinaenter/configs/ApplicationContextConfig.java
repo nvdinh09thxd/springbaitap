@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScans({@ComponentScan(value = "edu.vinaenter.*")})
+@ComponentScans({ @ComponentScan(value = "edu.vinaenter.*") })
 public class ApplicationContextConfig {
+	@Bean("viewResolver")
+	public InternalResourceViewResolver getViewResolver() {
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setPrefix("/WEB-INF/views/");
+		viewResolver.setSuffix(".jsp");
+		return viewResolver;
+	}
 
-	@Bean(name = "viewResolver")
-    public InternalResourceViewResolver getViewResolver() {
-        InternalResourceViewResolver views = new InternalResourceViewResolver();
-        views.setPrefix("/WEB-INF/views/");
-        views.setSuffix(".jsp");
-        return views;
-    }
 }
